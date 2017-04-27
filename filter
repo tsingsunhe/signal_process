@@ -1,0 +1,11 @@
+matlab design a filter IIR or FIR
+fdatool
+export -> get SOS and G matrix
+[b,a] = sos2tf(SOS)
+coefficients get!
+
+k = cumprod(G);
+k = k(end);
+signal_processed = filter(b,a,signal_original)*k;
+
+finished~!
