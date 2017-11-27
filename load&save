@@ -1,0 +1,10 @@
+
+fid = fopen('201711251601','rb');
+n_referelec = fread(fid,'int16');
+fclose(fid);
+clear ans fid;
+
+fid = fopen('test_frame.txt','wt');
+fprintf(fid,'%5.2f,',val);
+fclose(fid);
+
