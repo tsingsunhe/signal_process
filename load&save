@@ -8,3 +8,4 @@ fid = fopen('test_frame.txt','wt');
 fprintf(fid,'%5.2f,',val);
 fclose(fid);
 
+csvwrite('a.csv',a);
