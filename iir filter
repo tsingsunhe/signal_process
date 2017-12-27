@@ -1,0 +1,21 @@
+function iirhp(signal) {
+
+    A = [1,-8.81846939773608,34.5694052796669,-79.0669289799036,116.278457855779,-114.024676477846,74.5578086132296,-31.3463785637952,7.68924002410692,-0.838458353500647];
+    B = [1,-8.99457873653168,35.9620609529127,-83.8862024465620,125.810353730845,-125.810353730845,83.8862024465620,-35.9620609529127,8.99457873653168,-1];
+    savedreg = [0,0,0, 0,0,0, 0,0,0, 0];
+    //length of signal
+    sg_len = signal.length;
+    //length of chebyII order
+    od_len = A.length;
+    //var i,j,n,v;
+    for (i=0;i<sg_len;i++){
+        v = savedreg[0]+signal[i]*B[0];
+        for (j=1;j<od_len;j++){
+            n = savedreg[j]+B[j]*signal[i]-A[j]*v;
+            savedreg[j-1]=n;
+        }
+        signal[i]=v ;
+    }
+    signal_hp = signal;
+    return signal_hp;
+}
