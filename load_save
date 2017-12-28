@@ -9,3 +9,4 @@ fprintf(fid,'%5.2f,',val);
 fclose(fid);
 
 csvwrite('a.csv',a);
+dlmwrite('ecg_threelead7.csv', ecg_threelead2, 'precision', '%13.4f') 
